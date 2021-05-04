@@ -1,0 +1,23 @@
+{
+  "name": "snowpack-pixijs-0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev --polyfill-node",
+    "build": "snowpack build --polyfill-node",
+    "init": "snowpack init"
+  },
+  "keywords": [],
+  "author": "adrian",
+  "license": "ISC",
+  "devDependencies": {
+    "snowpack": "^3.0.11"
+  },
+  "dependencies": {
+    "matter-js": "^0.15.0",
+    "pixi-particles": "4.3.0",
+    "pixi.js": "^5.3.7",
+    "victor": "^1.1.0"
+  }
+}
