@@ -46,6 +46,12 @@ async function initGame() {
     await loadAssets();
     console.log("loaded");
     app.weather = new Weather({ app });
+    
+    const instruction = new PIXI.Container();
+    app.stage.addChild(instruction);
+    const textureInstruction = PIXI.Texture.from("assets/joc.png");
+    const caseta = new PIXI.Sprite(textureInstruction);
+    caseta.anchor.set(0.5);
 
     keysDiv = document.querySelector("#keys");
 
@@ -104,8 +110,14 @@ async function initGame() {
       switch (app.gameState) {
         case GameState.PREINTRO:
           player.scale = 4;
+          instruction.addChild(caseta);
+          instruction.x = app.screen.width / 1.3;
+          instruction.y = app.screen.height / 1.5;
+          instruction.height = 100;
+          instruction.width = 150;
           break;
         case GameState.INTRO:
+          instruction.removeChild(caseta);
           player.scale -= 0.01;
           if (player.scale <= 1) app.gameState = GameState.START;
           break;
